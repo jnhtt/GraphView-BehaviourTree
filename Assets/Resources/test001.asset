@@ -9,20 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ad9c2b146a2224731b5762c7214d3ecf, type: 3}
   m_Name: test001
-  m_EditorClassIdentifier: Assembly-CSharp:BT:BTGraphDataContainer
+  m_EditorClassIdentifier: 
   Nodes:
-  - Guid: 85d31f95379f4771a550b696a461738d
-    Position: {x: 59, y: 125}
-  - Guid: da9082e92fa9441dae37b4b5d40cc844
-    Position: {x: 218, y: 67}
-  - Guid: 362d202456e44be2a97b0b68ff0f839f
-    Position: {x: 381.5, y: 125}
+  - Guid: bbc00b1f9cda4becb120834cc98099f3
+    Position: {x: 51, y: 59}
+  - Guid: 98358ee04169447795ae0407fd1f9c50
+    Position: {x: 373.5, y: 126.5}
   Edges:
-  - fromNodeGuid: 85d31f95379f4771a550b696a461738d
-    toNodeGuid: da9082e92fa9441dae37b4b5d40cc844
-  - fromNodeGuid: da9082e92fa9441dae37b4b5d40cc844
-    toNodeGuid: 362d202456e44be2a97b0b68ff0f839f
-  - fromNodeGuid: 85d31f95379f4771a550b696a461738d
-    toNodeGuid: da9082e92fa9441dae37b4b5d40cc844
+  - fromNodeGuid: bbc00b1f9cda4becb120834cc98099f3
+    toNodeGuid: 98358ee04169447795ae0407fd1f9c50

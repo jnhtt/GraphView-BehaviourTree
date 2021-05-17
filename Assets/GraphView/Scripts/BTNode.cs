@@ -43,12 +43,6 @@ namespace BT
         [SerializeField] public string toNodeGuid;
     }
 
-    public class BTGraphDataContainer : ScriptableObject
-    {
-        public List<BTNodeData> Nodes = new List<BTNodeData>();
-        public List<BTEdgeData> Edges = new List<BTEdgeData>();
-    }
-
     public static class BTNodeFactory
     {
 
@@ -71,7 +65,6 @@ namespace BT
                 var outputNode = edge.output.node as BTNode;
                 var inputNode = edge.input.node as BTNode;
 
-                Debug.LogError(outputNode.Guid + " -> " + inputNode.Guid);
                 graphData.Edges.Add(new BTEdgeData()
                 {
                     fromNodeGuid = outputNode.Guid,
@@ -168,7 +161,6 @@ namespace BT
                 {
                     continue;
                 }
-                Debug.LogError(edgeData.fromNodeGuid + " -> " + edgeData.toNodeGuid);
 
                 var inputPort = GetT<Port>(toNode.inputContainer);
                 var outputPort = GetT<Port>(fromNode.outputContainer);
