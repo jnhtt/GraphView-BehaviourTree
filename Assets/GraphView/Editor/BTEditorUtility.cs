@@ -9,49 +9,6 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTNode : Node
-    {
-        public string Guid;
-
-        public BTNode()
-        {
-            title = "BTNode";
-
-            var inputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(float));
-            inputPort.portName = "In";
-            inputContainer.Add(inputPort);
-
-            var ouputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(float));
-            ouputPort.portName = "Out";
-            outputContainer.Add(ouputPort);
-
-            Guid = BTNodeFactory.NewGuid();
-        }
-    }
-
-    [Serializable]
-    public class BTNodeData
-    {
-        public string Guid;
-        public Vector2 Position;
-    }
-
-    [Serializable]
-    public class BTEdgeData
-    {
-        [SerializeField] public string fromNodeGuid;
-        [SerializeField] public string toNodeGuid;
-    }
-
-    public static class BTNodeFactory
-    {
-
-        public static string NewGuid()
-        {
-            return Guid.NewGuid().ToString("N");
-        }
-    }
-
     public static class BTGraphSaveUtility
     {
         public static void Save(string filename, GraphView graphView)
@@ -79,6 +36,7 @@ namespace BT
                 {
                     Guid = node.Guid,
                     Position = node.GetPosition().position,
+                    NodeType = node.NodeType,
                 }); ;
             }
 
@@ -131,9 +89,9 @@ namespace BT
             graphView.edges.ToList().ForEach(graphView.RemoveElement);
         }
 
-        private static BTNode CreateBTNode(string guid, Vector2 pos)
+        private static BTNode CreateBTNode(string guid, BTNodeType nodeType, Vector2 pos)
         {
-            var n = new BTNode();
+            var n = BTNodeEditorFactory.CreateNode(guid, nodeType, pos);
             n.Guid = guid;
             var rect = n.GetPosition();
             rect.position = pos;
@@ -146,7 +104,7 @@ namespace BT
         {
             foreach (var nodeData in graphData.Nodes)
             {
-                graphView.AddElement(CreateBTNode(nodeData.Guid, nodeData.Position));
+                graphView.AddElement(CreateBTNode(nodeData.Guid, nodeData.NodeType, nodeData.Position));
             }
         }
 
@@ -192,6 +150,38 @@ namespace BT
         private static void ApplyExpandedState(GraphView graphView, BTGraphDataContainer graphData)
         {
 
+        }
+    }
+
+    public static class BTNodeEditorFactory
+    {
+        public static BTNode CreateNode(string guid, BTNodeType nodeType, Vector2 pos)
+        {
+            BTNode node = null;
+            switch (nodeType)
+            {
+                case BTNodeType.Start:
+                    node = new BTStartNode() { Guid = guid, NodeType = nodeType };
+                    break;
+                case BTNodeType.Action:
+                    node = new BTActionNode() { Guid = guid, NodeType = nodeType };
+                    break;
+                case BTNodeType.Decorator:
+                    node = new BTDecoratorNode() { Guid = guid, NodeType = nodeType };
+                    break;
+                case BTNodeType.Selector:
+                    node = new BTSelectorNode() { Guid = guid, NodeType = nodeType };
+                    break;
+                case BTNodeType.Sequencer:
+                    node = new BTSequencerNode() { Guid = guid, NodeType = nodeType };
+                    break;
+            }
+            return node;
+        }
+
+        public static string NewGuid()
+        {
+            return Guid.NewGuid().ToString("N");
         }
     }
 }

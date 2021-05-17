@@ -17,7 +17,15 @@ public class BTGraphEditorWindow : EditorWindow
         var graphView = new BTGraphEditor(this);
         rootVisualElement.Add(graphView);
 
-        rootVisualElement.Add(new Button(graphView.Load) { text = "Load" });
-        rootVisualElement.Add(new Button(graphView.Save) { text = "Save" });
+        var horizontal = new VisualElement();
+        var fd = horizontal.style.flexDirection;
+        fd.value = FlexDirection.Row;
+        horizontal.style.flexDirection = fd;
+
+        rootVisualElement.Add(new TextField("Filename"));
+        horizontal.Add(new Button(graphView.Load) { text = "Load" });
+        horizontal.Add(new Button(graphView.Save) { text = "Save" });
+
+        rootVisualElement.Add(horizontal);
     }
 }

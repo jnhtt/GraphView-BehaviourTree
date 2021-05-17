@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: test001
   m_EditorClassIdentifier: 
   Nodes:
-  - Guid: bbc00b1f9cda4becb120834cc98099f3
-    Position: {x: 51, y: 59}
-  - Guid: 98358ee04169447795ae0407fd1f9c50
-    Position: {x: 373.5, y: 126.5}
+  - Guid: a1b78e567ae445faae1a9253382052ac
+    NodeType: 1
+    Position: {x: 136, y: 187}
+  - Guid: 741a42afe06a4dd08c29d56176fe6aee
+    NodeType: 2
+    Position: {x: 360, y: 227}
   Edges:
-  - fromNodeGuid: bbc00b1f9cda4becb120834cc98099f3
-    toNodeGuid: 98358ee04169447795ae0407fd1f9c50
+  - fromNodeGuid: a1b78e567ae445faae1a9253382052ac
+    toNodeGuid: 741a42afe06a4dd08c29d56176fe6aee
