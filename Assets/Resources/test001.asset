@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: test001
+  m_EditorClassIdentifier: Assembly-CSharp:BT:BTGraphDataContainer
+  Nodes:
+  - Guid: 85d31f95379f4771a550b696a461738d
+    Position: {x: 59, y: 125}
+  - Guid: da9082e92fa9441dae37b4b5d40cc844
+    Position: {x: 218, y: 67}
+  - Guid: 362d202456e44be2a97b0b68ff0f839f
+    Position: {x: 381.5, y: 125}
+  Edges:
+  - fromNodeGuid: 85d31f95379f4771a550b696a461738d
+    toNodeGuid: da9082e92fa9441dae37b4b5d40cc844
+  - fromNodeGuid: da9082e92fa9441dae37b4b5d40cc844
+    toNodeGuid: 362d202456e44be2a97b0b68ff0f839f
+  - fromNodeGuid: 85d31f95379f4771a550b696a461738d
+    toNodeGuid: da9082e92fa9441dae37b4b5d40cc844
