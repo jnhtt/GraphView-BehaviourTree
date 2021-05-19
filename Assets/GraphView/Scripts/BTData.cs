@@ -12,6 +12,7 @@ namespace BT
     {
         public string Guid;
         public BTNodeType NodeType;
+        public int Priority;
         public Vector2 Position;
     }
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace BT
 {
-    public abstract class BTBaseLogic
+    public class BTAction : BTBase
     {
     }
+
 }
