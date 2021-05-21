@@ -14,10 +14,17 @@ namespace BT
         public string Guid;
         public BTNodeType NodeType;
 
-        public BTNode(BTNodeType nodeType)
+        public virtual string ToJson()
         {
-            NodeType = nodeType;
+            return "";
+        }
 
+        public virtual void FromJson(string json)
+        {
+        }
+
+        public BTNode()
+        {
             title = "BTNode";
 
             Guid = BTNodeFactory.NewGuid();

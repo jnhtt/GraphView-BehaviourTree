@@ -6,9 +6,7 @@ public enum BTNodeType
 {
     None,
     Start,
-    Action,
     Move,
-    Condition,
     Random,
     Selector,
     Sequencer,

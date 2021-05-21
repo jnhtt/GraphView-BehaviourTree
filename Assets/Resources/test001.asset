@@ -15,10 +15,28 @@ MonoBehaviour:
   Nodes:
   - Guid: a1b78e567ae445faae1a9253382052ac
     NodeType: 1
+    Priority: 0
     Position: {x: 136, y: 187}
-  - Guid: 741a42afe06a4dd08c29d56176fe6aee
+    parameterJson: 
+  - Guid: 97cdfca534f443449e66797365ac0dd7
+    NodeType: 4
+    Priority: 0
+    Position: {x: 314, y: 245}
+    parameterJson: 
+  - Guid: 121e78caa688420ca698c4aeb84ae744
     NodeType: 2
-    Position: {x: 360, y: 227}
+    Priority: 0
+    Position: {x: 536, y: 344}
+    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":"PointB"}]}'
+  - Guid: c26311db82e9409294da8383a7302eb9
+    NodeType: 2
+    Priority: 0
+    Position: {x: 508, y: 125}
+    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":"PointA"}]}'
   Edges:
   - fromNodeGuid: a1b78e567ae445faae1a9253382052ac
-    toNodeGuid: 741a42afe06a4dd08c29d56176fe6aee
+    toNodeGuid: 97cdfca534f443449e66797365ac0dd7
+  - fromNodeGuid: 97cdfca534f443449e66797365ac0dd7
+    toNodeGuid: 121e78caa688420ca698c4aeb84ae744
+  - fromNodeGuid: 97cdfca534f443449e66797365ac0dd7
+    toNodeGuid: c26311db82e9409294da8383a7302eb9

@@ -9,8 +9,9 @@ namespace BT
 {
     public class BTSelectorNode : BTNode
     {
-        public BTSelectorNode() : base(BTNodeType.Selector)
+        public BTSelectorNode() : base()
         {
+            NodeType = BTNodeType.Selector;
             title = "Selector";
 
             var inputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(float));

@@ -37,6 +37,7 @@ namespace BT
                     Guid = node.Guid,
                     Position = node.GetPosition().position,
                     NodeType = node.NodeType,
+                    parameterJson = node.ToJson(),
                 }); ;
             }
 
@@ -89,14 +90,14 @@ namespace BT
             graphView.edges.ToList().ForEach(graphView.RemoveElement);
         }
 
-        private static BTNode CreateBTNode(string guid, BTNodeType nodeType, Vector2 pos)
+        private static BTNode CreateBTNode(BTNodeData data)
         {
-            var n = BTNodeEditorFactory.CreateNode(guid, nodeType, pos);
-            n.Guid = guid;
+            var n = BTNodeEditorFactory.CreateNode(data.Guid, data.NodeType);
+            n.Guid = data.Guid;
             var rect = n.GetPosition();
-            rect.position = pos;
+            rect.position = data.Position;
             n.SetPosition(rect);
-
+            n.FromJson(data.parameterJson);
             return n;
         }
 
@@ -104,7 +105,7 @@ namespace BT
         {
             foreach (var nodeData in graphData.Nodes)
             {
-                graphView.AddElement(CreateBTNode(nodeData.Guid, nodeData.NodeType, nodeData.Position));
+                graphView.AddElement(CreateBTNode(nodeData));
             }
         }
 
@@ -155,7 +156,7 @@ namespace BT
 
     public static class BTNodeEditorFactory
     {
-        public static BTNode CreateNode(string guid, BTNodeType nodeType, Vector2 pos)
+        public static BTNode CreateNode(string guid, BTNodeType nodeType)
         {
             BTNode node = null;
             switch (nodeType)
@@ -163,11 +164,11 @@ namespace BT
                 case BTNodeType.Start:
                     node = new BTStartNode() { Guid = guid, NodeType = nodeType };
                     break;
-                case BTNodeType.Action:
-                    node = new BTActionNode() { Guid = guid, NodeType = nodeType };
+                case BTNodeType.Move:
+                    node = new BTMoveNode() { Guid = guid, NodeType = nodeType };
                     break;
-                case BTNodeType.Condition:
-                    node = new BTConditionNode() { Guid = guid, NodeType = nodeType };
+                case BTNodeType.Random:
+                    node = new BTRandomNode() { Guid = guid, NodeType = nodeType };
                     break;
                 case BTNodeType.Selector:
                     node = new BTSelectorNode() { Guid = guid, NodeType = nodeType };

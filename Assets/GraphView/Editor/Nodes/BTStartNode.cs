@@ -9,8 +9,9 @@ namespace BT
 {
     public class BTStartNode : BTNode
     {
-        public BTStartNode() : base(BTNodeType.Start)
+        public BTStartNode() : base()
         {
+            NodeType = BTNodeType.Start;
             title = "Start";
 
             var ouputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(float));

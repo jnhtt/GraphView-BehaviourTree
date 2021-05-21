@@ -6,6 +6,7 @@ namespace BT
 {
     public class BTMove : BTAction
     {
+        public string targetName;
         public override BTResult Exec(BTData data)
         {
             return BTResult.Success;

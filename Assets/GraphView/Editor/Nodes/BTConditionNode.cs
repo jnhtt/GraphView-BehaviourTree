@@ -9,7 +9,7 @@ namespace BT
 {
     public class BTConditionNode : BTNode
     {
-        public BTConditionNode() : base(BTNodeType.Condition)
+        public BTConditionNode() : base()
         {
             title = "Condition";
 

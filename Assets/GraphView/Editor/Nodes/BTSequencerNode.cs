@@ -9,8 +9,9 @@ namespace BT
 {
     public class BTSequencerNode : BTNode
     {
-        public BTSequencerNode() : base(BTNodeType.Sequencer)
+        public BTSequencerNode() : base()
         {
+            NodeType = BTNodeType.Sequencer;
             title = "Sequencer";
 
             var inputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(float));

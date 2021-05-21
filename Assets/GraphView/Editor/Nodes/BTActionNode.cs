@@ -9,7 +9,7 @@ namespace BT
 {
     public class BTActionNode : BTNode
     {
-        public BTActionNode() : base(BTNodeType.Action)
+        public BTActionNode() : base()
         {
             title = "Action";
 
