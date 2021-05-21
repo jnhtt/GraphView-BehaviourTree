@@ -7,7 +7,9 @@ public enum BTNodeType
     None,
     Start,
     Action,
-    Decorator,
+    Move,
+    Condition,
+    Random,
     Selector,
     Sequencer,
 }

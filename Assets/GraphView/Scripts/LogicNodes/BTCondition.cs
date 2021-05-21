@@ -4,11 +4,7 @@ using UnityEngine;
 
 namespace BT
 {
-    public enum BTResult
+    public abstract class BTCondition : BTBase
     {
-        Waiting,
-        Success,
-        Running,
-        Failure,
     }
 }

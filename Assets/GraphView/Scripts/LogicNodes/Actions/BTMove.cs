@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace BT
 {
-    public class BTStart : BTBase
+    public class BTMove : BTAction
     {
         public override BTResult Exec(BTData data)
         {
             return BTResult.Success;
         }
     }
+
 }

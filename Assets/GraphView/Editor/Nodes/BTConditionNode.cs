@@ -7,11 +7,11 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTDecoratorNode : BTNode
+    public class BTConditionNode : BTNode
     {
-        public BTDecoratorNode() : base(BTNodeType.Decorator)
+        public BTConditionNode() : base(BTNodeType.Condition)
         {
-            title = "Decorator";
+            title = "Condition";
 
             var inputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(float));
             inputPort.portName = "In";

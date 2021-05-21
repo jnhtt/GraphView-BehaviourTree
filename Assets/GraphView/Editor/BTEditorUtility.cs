@@ -166,8 +166,8 @@ namespace BT
                 case BTNodeType.Action:
                     node = new BTActionNode() { Guid = guid, NodeType = nodeType };
                     break;
-                case BTNodeType.Decorator:
-                    node = new BTDecoratorNode() { Guid = guid, NodeType = nodeType };
+                case BTNodeType.Condition:
+                    node = new BTConditionNode() { Guid = guid, NodeType = nodeType };
                     break;
                 case BTNodeType.Selector:
                     node = new BTSelectorNode() { Guid = guid, NodeType = nodeType };

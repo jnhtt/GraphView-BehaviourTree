@@ -7,6 +7,12 @@ using UnityEngine.UIElements;
 
 namespace BT
 {
+    public class BTData
+    {
+        public Transform self;
+        public List<Transform> transformList;
+    }
+
     [Serializable]
     public class BTNodeData
     {
@@ -14,6 +20,8 @@ namespace BT
         public BTNodeType NodeType;
         public int Priority;
         public Vector2 Position;
+
+        public string parameterJson;
     }
 
     [Serializable]
