@@ -10,5 +10,13 @@ namespace BT
         public List<BTBase> ConnectionNodeList;
 
         public abstract BTResult Exec(BTData data);
+        public virtual string ToJson()
+        {
+            return "";
+        }
+        public virtual void FromJson(string json)
+        {
+
+        }
     }
 }

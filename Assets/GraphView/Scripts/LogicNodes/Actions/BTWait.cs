@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace BT
 {
-    public class BTMove : BTAction
+    public class BTWait : BTAction
     {
-        public string targetName;
+        public float waitTime;
+
         public override BTResult Exec(BTData data)
         {
             return BTResult.Success;
@@ -15,7 +16,7 @@ namespace BT
         public override string ToJson()
         {
             var list = new BTParameterList();
-            list.ParameterList.Add(new BTParamter() { Name = "Target", Value = targetName });
+            list.ParameterList.Add(new BTParamter() { Name = "Wait", Value = waitTime.ToString() });
             return JsonUtility.ToJson(list);
         }
 
@@ -24,7 +25,7 @@ namespace BT
             var list = JsonUtility.FromJson<BTParameterList>(json);
             if (list != null)
             {
-                targetName = list.GetValue<string>("Target");
+                waitTime = list.GetValue<float>("Wait");
             }
         }
     }

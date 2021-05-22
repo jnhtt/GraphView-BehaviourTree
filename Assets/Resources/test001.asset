@@ -13,30 +13,30 @@ MonoBehaviour:
   m_Name: test001
   m_EditorClassIdentifier: 
   Nodes:
-  - Guid: a1b78e567ae445faae1a9253382052ac
+  - Guid: 31c536163d6e41fea69b595632d3f7af
     NodeType: 1
     Priority: 0
-    Position: {x: 136, y: 187}
+    Position: {x: 163, y: 212}
     parameterJson: 
-  - Guid: 97cdfca534f443449e66797365ac0dd7
-    NodeType: 4
-    Priority: 0
-    Position: {x: 314, y: 245}
-    parameterJson: 
-  - Guid: 121e78caa688420ca698c4aeb84ae744
+  - Guid: b868f49cd6b04ae6b78214337087c1a4
     NodeType: 2
     Priority: 0
-    Position: {x: 536, y: 344}
-    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":"PointB"}]}'
-  - Guid: c26311db82e9409294da8383a7302eb9
-    NodeType: 2
+    Position: {x: 543, y: 177}
+    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":""}]}'
+  - Guid: 4c012faecf1d49658b5113c27799cd92
+    NodeType: 3
     Priority: 0
-    Position: {x: 508, y: 125}
-    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":"PointA"}]}'
+    Position: {x: 546, y: 390}
+    parameterJson: '{"ParameterList":[{"Name":"Wait","Typename":"","Value":"2"}]}'
+  - Guid: 14f05e26c7ae40f89a372b02b833789c
+    NodeType: 5
+    Priority: 0
+    Position: {x: 336, y: 307}
+    parameterJson: '{"ParameterList":[{"Name":"CheckType","Typename":"","Value":"0"},{"Name":"TargetName","Typename":"","Value":"PointA"},{"Name":"Distance","Typename":"","Value":"1"}]}'
   Edges:
-  - fromNodeGuid: a1b78e567ae445faae1a9253382052ac
-    toNodeGuid: 97cdfca534f443449e66797365ac0dd7
-  - fromNodeGuid: 97cdfca534f443449e66797365ac0dd7
-    toNodeGuid: 121e78caa688420ca698c4aeb84ae744
-  - fromNodeGuid: 97cdfca534f443449e66797365ac0dd7
-    toNodeGuid: c26311db82e9409294da8383a7302eb9
+  - fromNodeGuid: 31c536163d6e41fea69b595632d3f7af
+    toNodeGuid: 14f05e26c7ae40f89a372b02b833789c
+  - fromNodeGuid: 14f05e26c7ae40f89a372b02b833789c
+    toNodeGuid: b868f49cd6b04ae6b78214337087c1a4
+  - fromNodeGuid: 14f05e26c7ae40f89a372b02b833789c
+    toNodeGuid: 4c012faecf1d49658b5113c27799cd92

@@ -43,6 +43,22 @@ namespace BT
     {
         public Transform self;
         public List<Transform> transformList;
+
+        public Transform Get(string targetName)
+        {
+            if (transformList == null)
+            {
+                return null;
+            }
+            foreach (var trans in transformList)
+            {
+                if (targetName == trans.name)
+                {
+                    return trans;
+                }
+            }
+            return null;
+        }
     }
 
     [Serializable]

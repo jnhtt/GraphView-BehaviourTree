@@ -167,8 +167,14 @@ namespace BT
                 case BTNodeType.Move:
                     node = new BTMoveNode() { Guid = guid, NodeType = nodeType };
                     break;
+                case BTNodeType.Wait:
+                    node = new BTWaitNode() { Guid = guid, NodeType = nodeType };
+                    break;
                 case BTNodeType.Random:
                     node = new BTRandomNode() { Guid = guid, NodeType = nodeType };
+                    break;
+                case BTNodeType.CheckDistance:
+                    node = new BTCheckDistanceNode() { Guid = guid, NodeType = nodeType };
                     break;
                 case BTNodeType.Selector:
                     node = new BTSelectorNode() { Guid = guid, NodeType = nodeType };
