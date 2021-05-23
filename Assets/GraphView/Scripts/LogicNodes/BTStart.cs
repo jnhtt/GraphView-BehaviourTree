@@ -6,9 +6,9 @@ namespace BT
 {
     public class BTStart : BTBase
     {
-        public override BTResult Exec(BTData data)
+        public override BTStatus Exec(BTData data)
         {
-            return BTResult.Success;
+            return BTStatus.Success;
         }
     }
 }

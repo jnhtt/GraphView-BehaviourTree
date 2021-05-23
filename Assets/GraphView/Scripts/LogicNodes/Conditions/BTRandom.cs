@@ -6,11 +6,11 @@ namespace BT
 {
     public class BTRandom : BTCondition
     {
-        public override BTResult Exec(BTData data)
+        public override BTStatus Exec(BTData data)
         {
             if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
             {
-                return BTResult.Failure;
+                return BTStatus.Failure;
             }    
             int outputCount = ConnectionNodeList.Count;
             int decide = UnityEngine.Random.Range(0, outputCount);

@@ -4,19 +4,27 @@ using UnityEngine;
 
 namespace BT
 {
-    public class BTWait : BTAction
+    public class BTRepeat : BTDecorator
     {
-        public float waitTime;
+        public int repeat = 0;
+        private int count = 0;
 
         public override BTStatus Exec(BTData data)
         {
-            return BTStatus.Success;
+            if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
+            {
+                return BTStatus.Failure;
+            }
+
+            var st = count < repeat ? BTStatus.Running : BTStatus.Success;
+            count++;
+            return st;
         }
 
         public override string ToJson()
         {
             var list = new BTParameterList();
-            list.ParameterList.Add(new BTParamter() { Name = "Wait", Value = waitTime.ToString() });
+            list.ParameterList.Add(new BTParamter() { Name = "Repeat", Value = repeat.ToString() });
             return JsonUtility.ToJson(list);
         }
 
@@ -25,9 +33,8 @@ namespace BT
             var list = JsonUtility.FromJson<BTParameterList>(json);
             if (list != null)
             {
-                waitTime = list.GetValue<float>("Wait");
+                repeat = list.GetValue<int>("Repeat");
             }
         }
     }
-
 }

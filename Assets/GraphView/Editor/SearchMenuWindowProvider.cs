@@ -23,15 +23,19 @@ public class SearchMenuWindowProvider : ScriptableObject, ISearchWindowProvider
         var entries = new List<SearchTreeEntry>();
         entries.Add(new SearchTreeGroupEntry(new GUIContent("Create Node")));
         entries.Add(new SearchTreeGroupEntry(new GUIContent("BT")) { level = 1 });
+
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTStartNode))) { level = 2, userData = typeof(BTStartNode) });
-        //entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTActionNode))) { level = 2, userData = typeof(BTActionNode) });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTSelectorNode))) { level = 2, userData = typeof(BTSelectorNode) });
-        //entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTConditionNode))) { level = 2, userData = typeof(BTConditionNode) });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTSequencerNode))) { level = 2, userData = typeof(BTSequencerNode) });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTMoveNode))) { level = 2, userData = typeof(BTMoveNode) });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTWaitNode))) { level = 2, userData = typeof(BTWaitNode) });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRandomNode))) { level = 2, userData = typeof(BTRandomNode) });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTCheckDistanceNode))) { level = 2, userData = typeof(BTCheckDistanceNode) });
+
+        entries.Add(new SearchTreeGroupEntry(new GUIContent("Action")) { level = 2 });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTMoveNode))) { level = 3, userData = typeof(BTMoveNode) });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTWaitNode))) { level = 3, userData = typeof(BTWaitNode) });
+
+        entries.Add(new SearchTreeGroupEntry(new GUIContent("Condition")) { level = 2 });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRandomNode))) { level = 3, userData = typeof(BTRandomNode) });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTCheckDistanceNode))) { level = 3, userData = typeof(BTCheckDistanceNode) });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRepeatNode))) { level = 3, userData = typeof(BTRepeatNode) });
         return entries;
     }
 

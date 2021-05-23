@@ -7,9 +7,9 @@ namespace BT
     public class BTMove : BTAction
     {
         public string targetName;
-        public override BTResult Exec(BTData data)
+        public override BTStatus Exec(BTData data)
         {
-            return BTResult.Success;
+            return BTStatus.Success;
         }
 
         public override string ToJson()

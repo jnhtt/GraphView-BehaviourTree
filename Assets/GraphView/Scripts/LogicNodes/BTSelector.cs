@@ -6,16 +6,16 @@ namespace BT
 {
     public class BTSelector : BTBase
     {
-        public override BTResult Exec(BTData data)
+        public override BTStatus Exec(BTData data)
         {
             foreach (var node in ConnectionNodeList)
             {
-                if (node.Exec(data) == BTResult.Success)
+                if (node.Exec(data) == BTStatus.Success)
                 {
-                    return BTResult.Success;
+                    return BTStatus.Success;
                 }
             }
-            return BTResult.Failure;
+            return BTStatus.Failure;
         }
     }
 

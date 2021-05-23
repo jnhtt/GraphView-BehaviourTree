@@ -8,8 +8,9 @@ namespace BT
     {
         public BTNodeData Data;
         public List<BTBase> ConnectionNodeList;
+        public BTStatus Status;
 
-        public abstract BTResult Exec(BTData data);
+        public abstract BTStatus Exec(BTData data);
         public virtual string ToJson()
         {
             return "";
@@ -17,6 +18,13 @@ namespace BT
         public virtual void FromJson(string json)
         {
 
+        }
+        public virtual void Reset(bool forceInit = false)
+        {
+            if (forceInit || Status != BTStatus.Running)
+            {
+                Status = BTStatus.Ready;
+            }
         }
     }
 }

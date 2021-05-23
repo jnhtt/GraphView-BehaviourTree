@@ -4,11 +4,7 @@ using UnityEngine;
 
 namespace BT
 {
-    public enum BTStatus
+    public abstract class BTDecorator : BTBase
     {
-        Ready,
-        Success,
-        Failure,
-        Running,
     }
 }

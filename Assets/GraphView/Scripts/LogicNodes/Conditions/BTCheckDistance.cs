@@ -25,16 +25,16 @@ namespace BT
         public string targetName;
         public float distance = 0f;
 
-        public override BTResult Exec(BTData data)
+        public override BTStatus Exec(BTData data)
         {
             if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
             {
-                return BTResult.Failure;
+                return BTStatus.Failure;
             }
             var target = data.Get(targetName);
             if (target == null)
             {
-                return BTResult.Failure;
+                return BTStatus.Failure;
             }
 
             float dist = Vector3.Distance(target.position, data.self.position);
@@ -45,7 +45,7 @@ namespace BT
             }
             else if (ConnectionNodeList.Count == 1 || ConnectionNodeList[1] == null)
             {
-                return BTResult.Failure;
+                return BTStatus.Failure;
             }
             else
             {
