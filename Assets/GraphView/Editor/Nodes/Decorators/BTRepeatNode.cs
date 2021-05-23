@@ -7,7 +7,7 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTRepeatNode : BTConditionNode
+    public class BTRepeatNode : BTDecoratorNode
     {
         private IntegerField repeatField;
 

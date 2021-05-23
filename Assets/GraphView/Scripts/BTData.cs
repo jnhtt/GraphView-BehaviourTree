@@ -43,8 +43,28 @@ namespace BT
     {
         public Transform self;
         public List<Transform> transformList;
+        public Dictionary<string, string> paramDict = new Dictionary<string, string>();
 
-        public Transform Get(string targetName)
+        public T GetValue<T>(string name)
+        {
+            if (paramDict.TryGetValue(name, out var val))
+            {
+                var converter = TypeDescriptor.GetConverter(typeof(T));
+                if (converter != null)
+                {
+                    //ConvertFromString(string text)の戻りは object なので T型でキャストする
+                    return (T)converter.ConvertFromString(val);
+                }
+            }
+            return default(T);
+        }
+
+        public void SetValue(string name, string value)
+        {
+            paramDict[name] = value;
+        }
+
+        public Transform GetTransform(string targetName)
         {
             if (transformList == null)
             {

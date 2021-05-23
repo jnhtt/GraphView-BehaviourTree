@@ -35,7 +35,10 @@ public class SearchMenuWindowProvider : ScriptableObject, ISearchWindowProvider
         entries.Add(new SearchTreeGroupEntry(new GUIContent("Condition")) { level = 2 });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRandomNode))) { level = 3, userData = typeof(BTRandomNode) });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTCheckDistanceNode))) { level = 3, userData = typeof(BTCheckDistanceNode) });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRepeatNode))) { level = 3, userData = typeof(BTRepeatNode) });
+
+        entries.Add(new SearchTreeGroupEntry(new GUIContent("Decorator")) { level = 2 });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRandomNode))) { level = 3, userData = typeof(BTRepeatNode) });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTDataSetNode))) { level = 3, userData = typeof(BTDataSetNode) });
         return entries;
     }
 

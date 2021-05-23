@@ -48,6 +48,9 @@ namespace BT
                 case BTNodeType.Sequencer:
                     node = new BTSequencer();
                     break;
+                case BTNodeType.DataSet:
+                    node = new BTDataSet();
+                    break;
             }
             return node;
         }

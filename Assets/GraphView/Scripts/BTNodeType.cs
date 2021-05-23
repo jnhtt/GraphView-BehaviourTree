@@ -11,6 +11,7 @@ public enum BTNodeType
     Random,
     CheckDistance,
     Repeat,
+    DataSet,
     Selector,
     Sequencer,
 }

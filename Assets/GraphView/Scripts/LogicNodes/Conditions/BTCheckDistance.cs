@@ -31,7 +31,7 @@ namespace BT
             {
                 return BTStatus.Failure;
             }
-            var target = data.Get(targetName);
+            var target = data.GetTransform(targetName);
             if (target == null)
             {
                 return BTStatus.Failure;

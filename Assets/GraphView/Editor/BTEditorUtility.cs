@@ -182,6 +182,9 @@ namespace BT
                 case BTNodeType.Sequencer:
                     node = new BTSequencerNode() { Guid = guid, NodeType = nodeType };
                     break;
+                case BTNodeType.DataSet:
+                    node = new BTDataSetNode() { Guid = guid, NodeType = nodeType };
+                    break;
             }
             return node;
         }
