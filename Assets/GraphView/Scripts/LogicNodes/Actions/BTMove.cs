@@ -20,7 +20,7 @@ namespace BT
             var trans = data.self;
             var dir = goal - trans.position;
             trans.LookAt(trans.position + dir);
-            trans.position += 1f * Time.deltaTime * dir.normalized;
+            trans.position += 2f * Time.deltaTime * dir.normalized;
         }
 
         private Vector3 GetGoalPos(BTData data)

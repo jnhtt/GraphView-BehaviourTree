@@ -37,7 +37,7 @@ public class MoveByAI : MonoBehaviour
 
     private void UpdateBT()
     {
-        if (frame % 7 == 0)
+        if (frame % 13 == 0)
         {
             data.runningAction = null;
             graph.Reset();
