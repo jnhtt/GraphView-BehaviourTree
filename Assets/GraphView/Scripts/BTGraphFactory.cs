@@ -58,8 +58,7 @@ namespace BT
         private static BTBase CreateBTNode(BTNodeData data)
         {
             var n = CreateNode(data.NodeType);
-            n.Data.Guid = data.Guid;
-            n.Data.Position = data.Position;
+            n.Data = data;
             n.FromJson(data.parameterJson);
             return n;
         }

@@ -13,10 +13,12 @@ namespace BT
         {
             if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
             {
+                Debug.LogError("BTDataSet : Failure");
                 return BTStatus.Failure;
             }
 
             data.SetValue(key, value);
+            Debug.LogError("BTDataSet");
             return ConnectionNodeList[0].Exec(data);
         }
 

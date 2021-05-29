@@ -44,6 +44,7 @@ namespace BT
         public Transform self;
         public List<Transform> transformList;
         public Dictionary<string, string> paramDict = new Dictionary<string, string>();
+        public BTAction runningAction;
 
         public T GetValue<T>(string name)
         {

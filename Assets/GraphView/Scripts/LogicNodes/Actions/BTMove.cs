@@ -9,7 +9,25 @@ namespace BT
         public string targetName;
         public override BTStatus Exec(BTData data)
         {
+            Debug.LogError("BTMove");
+            data.runningAction = this;
             return BTStatus.Success;
+        }
+
+        public override void OnUpdate(BTData data)
+        {
+            var goal = GetGoalPos(data);
+            var trans = data.self;
+            var dir = goal - trans.position;
+            trans.LookAt(trans.position + dir);
+            trans.position = 6f * Time.deltaTime * dir.normalized;
+        }
+
+        private Vector3 GetGoalPos(BTData data)
+        {
+            var pointName = data.GetValue<string>(targetName);
+            var trans = data.GetTransform(pointName);
+            return trans != null ? trans.position : Vector3.zero;
         }
 
         public override string ToJson()

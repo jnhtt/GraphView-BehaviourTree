@@ -34,6 +34,7 @@ namespace BT
             var target = data.GetTransform(targetName);
             if (target == null)
             {
+                Debug.LogError("BTCheckDistance : Failure");
                 return BTStatus.Failure;
             }
 
@@ -41,6 +42,7 @@ namespace BT
             // true -> 0, false -> 1
             if (CheckDistance(dist))
             {
+                Debug.LogError("BTCheckDistance : Success");
                 return ConnectionNodeList[0].Exec(data);
             }
             else if (ConnectionNodeList.Count == 1 || ConnectionNodeList[1] == null)

@@ -47,6 +47,7 @@ namespace BT
             checkTypeField.value = data.checkType;
             targetNameField.value = data.targetName;
             distanceField.value = data.distance;
+            priorityField.value = Priority;
         }
     }
 }

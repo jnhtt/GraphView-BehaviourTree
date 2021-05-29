@@ -37,6 +37,7 @@ namespace BT
                     Guid = node.Guid,
                     Position = node.GetPosition().position,
                     NodeType = node.NodeType,
+                    Priority = node.Priority,
                     parameterJson = node.ToJson(),
                 }); ;
             }
@@ -94,6 +95,7 @@ namespace BT
         {
             var n = BTNodeEditorFactory.CreateNode(data.Guid, data.NodeType);
             n.Guid = data.Guid;
+            n.Priority = data.Priority;
             var rect = n.GetPosition();
             rect.position = data.Position;
             n.SetPosition(rect);

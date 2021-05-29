@@ -18,15 +18,24 @@ namespace BT
 
         public BTStart GetStart()
         {
-            BTStart start = null;
+            BTStart s = null;
             foreach (var n in btList)
             {
-                if (n is BTStart)
+                s = n as BTStart;
+                if (s != null)
                 {
-                    return start;
+                    return s;
                 }
             }
             return null;
+        }
+
+        public void Reset(bool forceReset = false)
+        {
+            foreach (var n in btList)
+            {
+                n.Reset(forceReset);
+            }
         }
 
         public void Exec(BTData data)

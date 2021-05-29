@@ -7,10 +7,28 @@ namespace BT
     public class BTWait : BTAction
     {
         public float waitTime;
+        private float elapsedTime;
+
+        public override void Reset(bool forceInit = false)
+        {
+            base.Reset(forceInit);
+        }
+
+        public override void OnUpdate(BTData data)
+        {
+            elapsedTime += Time.deltaTime;
+        }
 
         public override BTStatus Exec(BTData data)
         {
-            return BTStatus.Success;
+            Debug.LogError("BTWait");
+            data.runningAction = this;
+            var ret = elapsedTime >= waitTime ? BTStatus.Success : BTStatus.Running;
+            if (ret == BTStatus.Success)
+            {
+                elapsedTime = 0f;
+            }
+            return ret;
         }
 
         public override string ToJson()

@@ -10,6 +10,11 @@ namespace BT
         public List<BTBase> ConnectionNodeList;
         public BTStatus Status;
 
+        public BTBase()
+        {
+            ConnectionNodeList = new List<BTBase>();
+        }
+
         public abstract BTStatus Exec(BTData data);
         public virtual string ToJson()
         {

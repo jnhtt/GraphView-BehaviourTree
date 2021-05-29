@@ -13,27 +13,14 @@ namespace BT
 
         public override string ToJson()
         {
-#if true
             return data.ToJson();
-#else
-            var list = new BTParameterList();
-            list.ParameterList.Add(new BTParamter() { Name = "Target", Value = TargetText });
-            return JsonUtility.ToJson(list);
-#endif
         }
 
         public override void FromJson(string json)
         {
-#if true
             data.FromJson(json);
             targetField.value = data.targetName;
-#else
-            var list = JsonUtility.FromJson<BTParameterList>(json);
-            if (list != null)
-            {
-                TargetText = list.GetValue<string>("Target");
-            }
-#endif
+            priorityField.value = Priority;
         }
 
         public BTMoveNode() : base()
