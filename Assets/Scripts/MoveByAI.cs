@@ -18,6 +18,14 @@ public class MoveByAI : MonoBehaviour
         data.self = transform;
 
         graph = BT.BTGraphFactory.Load("test001");
+
+        //
+        var go = GameObject.Find("MoveByInput");
+        if (go != null)
+        {
+            data.paramDict.Add("PlayerPos", "MoveByInput");
+            data.transformList.Add(go.transform);
+        }
     }
 
 

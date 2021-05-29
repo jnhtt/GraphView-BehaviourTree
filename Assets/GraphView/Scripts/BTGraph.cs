@@ -43,6 +43,7 @@ namespace BT
         {
             if (start != null)
             {
+                data.runningAction = null;
                 Reset(status != BTStatus.Running);
                 status = start.Exec(data, status == BTStatus.Running);
                 Debug.Log("Result : " + status);

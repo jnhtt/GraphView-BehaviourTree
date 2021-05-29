@@ -16,12 +16,12 @@ namespace BT
                 {
                     Status = node.Exec(data, traverseRunning);
                 }
-                else if (node.Exec(data, traverseRunning) == BTStatus.Success)
+                else
                 {
-                    Status = BTStatus.Success;
+                    Status = node.Exec(data, traverseRunning);
                 }
 
-                if (Status == BTStatus.Success)
+                if (Status == BTStatus.Success || Status == BTStatus.Running)
                 {
                     return Status;
                 }
