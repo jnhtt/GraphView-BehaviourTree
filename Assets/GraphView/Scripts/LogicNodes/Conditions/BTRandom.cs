@@ -6,17 +6,30 @@ namespace BT
 {
     public class BTRandom : BTCondition
     {
-        public override BTStatus Exec(BTData data)
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
+            Status = BTStatus.Failure;
             if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
             {
-                Debug.Log("BTRandom : Failure");
-                return BTStatus.Failure;
-            }    
+                return Status;
+            }
+            if (traverseRunning)
+            {
+                foreach (var node in ConnectionNodeList)
+                {
+                    if (node.Status == BTStatus.Running)
+                    {
+                        Status = node.Exec(data, traverseRunning);
+                    }
+                }
+                return Status;
+            }
+
             int outputCount = ConnectionNodeList.Count;
             int decide = UnityEngine.Random.Range(0, outputCount);
-            Debug.Log("BTRandom : decide = " + decide);
-            return ConnectionNodeList[decide].Exec(data);
+            Debug.Log("Random : " + decide);
+            Status = ConnectionNodeList[decide].Exec(data, traverseRunning);
+            return Status;
         }
 
         public override string ToJson()

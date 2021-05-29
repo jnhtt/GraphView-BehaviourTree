@@ -25,38 +25,50 @@ namespace BT
         public string targetName;
         public float distance = 0f;
 
-        public override BTStatus Exec(BTData data)
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
+            var prevStatus = Status;
+            Status = BTStatus.Failure;
             if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
             {
-                return BTStatus.Failure;
+                Debug.LogError("BTCheckDistance : Failure 1");
+                return Status;
             }
-            var target = data.GetTransform(targetName);
+            var searchName = data.GetValue<string>(targetName);
+            var target = data.GetTransform(searchName);
             if (target == null)
             {
-                Debug.LogError("BTCheckDistance : Failure");
-                return BTStatus.Failure;
+                Debug.LogError("BTCheckDistance : Failure 2");
+                return Status;
             }
 
             float dist = Vector3.Distance(target.position, data.self.position);
             // true -> 0, false -> 1
             if (CheckDistance(dist))
             {
-                Debug.LogError("BTCheckDistance : Success");
-                return ConnectionNodeList[0].Exec(data);
+                
+                Status = ConnectionNodeList[0].Exec(data, traverseRunning);
+            }
+            else if (traverseRunning && prevStatus == BTStatus.Running)
+            {
+                Status = BTStatus.Success;
             }
             else if (ConnectionNodeList.Count == 1 || ConnectionNodeList[1] == null)
             {
-                return BTStatus.Failure;
+                Status = BTStatus.Failure;
             }
             else
             {
-                return ConnectionNodeList[1].Exec(data);
+                Status = ConnectionNodeList[1].Exec(data, traverseRunning);
             }
+
+            //Debug.LogError("BTCheckDistance : " + Status);
+            return Status;
         }
 
         private bool CheckDistance(float dist)
         {
+            //Debug.LogError("BTCheckDistance " + checkType + ", " + dist + ", " + distance);
             switch (checkType)
             {
                 case CheckType.Equal:

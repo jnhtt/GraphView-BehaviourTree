@@ -6,18 +6,24 @@ namespace BT
 {
     public class BTSequencer : BTBase
     {
-        public override BTStatus Exec(BTData data)
+        private int runningIndex = 0;
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
             ConnectionNodeList.Sort((a, b) => b.Data.Priority - a.Data.Priority);
-            Debug.LogError("BTSequencer");
-            foreach (var node in ConnectionNodeList)
+            Status = BTStatus.Success;
+            int startIndex = traverseRunning ? runningIndex : 0;
+            for (int i = startIndex; i < ConnectionNodeList.Count; i++)
             {
-                if (node.Exec(data) == BTStatus.Failure)
+                runningIndex = i;
+                var node = ConnectionNodeList[i];
+                Status = node.Exec(data, traverseRunning);
+
+                if (Status != BTStatus.Success)
                 {
-                    return BTStatus.Failure;
+                    return Status;
                 }
             }
-            return BTStatus.Success;
+            return Status;
         }
     }
 }

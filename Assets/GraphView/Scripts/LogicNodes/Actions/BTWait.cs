@@ -9,26 +9,20 @@ namespace BT
         public float waitTime;
         private float elapsedTime;
 
-        public override void Reset(bool forceInit = false)
-        {
-            base.Reset(forceInit);
-        }
-
         public override void OnUpdate(BTData data)
         {
             elapsedTime += Time.deltaTime;
         }
 
-        public override BTStatus Exec(BTData data)
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
-            Debug.LogError("BTWait");
             data.runningAction = this;
-            var ret = elapsedTime >= waitTime ? BTStatus.Success : BTStatus.Running;
-            if (ret == BTStatus.Success)
+            Status = elapsedTime >= waitTime ? BTStatus.Success : BTStatus.Running;
+            if (Status == BTStatus.Success)
             {
                 elapsedTime = 0f;
             }
-            return ret;
+            return Status;
         }
 
         public override string ToJson()

@@ -6,14 +6,15 @@ namespace BT
 {
     public class BTStart : BTBase
     {
-        public override BTStatus Exec(BTData data)
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
+            Status = BTStatus.Failure;
             if (ConnectionNodeList.Count == 1)
             {
                 Debug.Log("BTStart");
-                return ConnectionNodeList[0].Exec(data);
+                Status =  ConnectionNodeList[0].Exec(data, traverseRunning);
             }
-            return BTStatus.Failure;
+            return Status;
         }
     }
 }

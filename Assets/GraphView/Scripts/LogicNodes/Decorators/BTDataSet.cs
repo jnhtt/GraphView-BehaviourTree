@@ -9,17 +9,17 @@ namespace BT
         public string key = "";
         public string value = "";
 
-        public override BTStatus Exec(BTData data)
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
+            Status = BTStatus.Failure;
             if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
             {
-                Debug.LogError("BTDataSet : Failure");
-                return BTStatus.Failure;
+                return Status;
             }
 
             data.SetValue(key, value);
-            Debug.LogError("BTDataSet");
-            return ConnectionNodeList[0].Exec(data);
+            Status = ConnectionNodeList[0].Exec(data, traverseRunning);
+            return Status;
         }
 
         public override string ToJson()

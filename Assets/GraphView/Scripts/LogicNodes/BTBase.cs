@@ -8,14 +8,15 @@ namespace BT
     {
         public BTNodeData Data;
         public List<BTBase> ConnectionNodeList;
-        public BTStatus Status;
+        public BTStatus Status { get { return status; } set { status = value; } }
+        private BTStatus status;
 
         public BTBase()
         {
             ConnectionNodeList = new List<BTBase>();
         }
 
-        public abstract BTStatus Exec(BTData data);
+        public abstract BTStatus Exec(BTData data, bool traverseRunning);
         public virtual string ToJson()
         {
             return "";

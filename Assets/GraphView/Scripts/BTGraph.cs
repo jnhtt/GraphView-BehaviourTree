@@ -9,6 +9,7 @@ namespace BT
     {
         private BTStart start;
         private List<BTBase> btList;
+        private BTStatus status = BTStatus.Ready;
 
         public void Init(List<BTBase> list)
         {
@@ -42,7 +43,9 @@ namespace BT
         {
             if (start != null)
             {
-                start.Exec(data);
+                Reset(status != BTStatus.Running);
+                status = start.Exec(data, status == BTStatus.Running);
+                Debug.Log("Result : " + status);
             }
         }
     }

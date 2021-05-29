@@ -9,7 +9,7 @@ namespace BT
         public int repeat = 0;
         private int count = 0;
 
-        public override BTStatus Exec(BTData data)
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
             if (ConnectionNodeList == null || ConnectionNodeList.Count <= 0)
             {

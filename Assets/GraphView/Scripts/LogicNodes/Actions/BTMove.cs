@@ -7,11 +7,11 @@ namespace BT
     public class BTMove : BTAction
     {
         public string targetName;
-        public override BTStatus Exec(BTData data)
+        public override BTStatus Exec(BTData data, bool traverseRunning)
         {
-            Debug.LogError("BTMove");
             data.runningAction = this;
-            return BTStatus.Success;
+            Status = BTStatus.Running;
+            return Status;
         }
 
         public override void OnUpdate(BTData data)
@@ -20,7 +20,7 @@ namespace BT
             var trans = data.self;
             var dir = goal - trans.position;
             trans.LookAt(trans.position + dir);
-            trans.position = 6f * Time.deltaTime * dir.normalized;
+            trans.position += 1f * Time.deltaTime * dir.normalized;
         }
 
         private Vector3 GetGoalPos(BTData data)
