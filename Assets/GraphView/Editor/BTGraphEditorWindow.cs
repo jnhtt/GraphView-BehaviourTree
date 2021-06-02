@@ -14,17 +14,16 @@ public class BTGraphEditorWindow : EditorWindow
 
     private void OnEnable()
     {
-        var graphView = new BTGraphEditor(this);
-        rootVisualElement.Add(graphView);
+        var graphViewEditor = new BTGraphEditor(this);
+        rootVisualElement.Add(graphViewEditor);
 
         var horizontal = new VisualElement();
         var fd = horizontal.style.flexDirection;
         fd.value = FlexDirection.Row;
         horizontal.style.flexDirection = fd;
 
-        rootVisualElement.Add(new TextField("Filename"));
-        horizontal.Add(new Button(graphView.Load) { text = "Load" });
-        horizontal.Add(new Button(graphView.Save) { text = "Save" });
+        horizontal.Add(new Button(graphViewEditor.Load) { text = "Load" });
+        horizontal.Add(new Button(graphViewEditor.Save) { text = "Save" });
 
         rootVisualElement.Add(horizontal);
     }

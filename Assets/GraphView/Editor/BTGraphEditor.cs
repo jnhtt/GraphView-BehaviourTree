@@ -8,6 +8,8 @@ using UnityEditor.Experimental.GraphView;
 
 public class BTGraphEditor : GraphView
 {
+    private string filename = "";
+    private const string BT_PATH = "BTGraph";
 
     public BTGraphEditor(EditorWindow editorWindow)
     {
@@ -52,11 +54,30 @@ public class BTGraphEditor : GraphView
 
     public void Load()
     {
-        BT.BTGraphSaveUtility.Load("test001", this);
+        var bt_path = string.Format("{0}/Resources/{1}", Application.dataPath, BT_PATH);
+        var path = EditorUtility.OpenFilePanel("Select BTGraph", bt_path, "asset");
+        if (string.IsNullOrEmpty(path))
+        {
+            return;
+        }
+        path = path.Replace(string.Format("{0}/Resources/", Application.dataPath), "");
+        filename = System.IO.Path.GetFileNameWithoutExtension(path);
+        path = string.Format("{0}/{1}", BT_PATH, filename);
+        BT.BTGraphSaveUtility.Load(path, this);
     }
 
     public void Save()
     {
-        BT.BTGraphSaveUtility.Save("test001", this);
+        var bt_path = string.Format("{0}/Resources/{1}", Application.dataPath, BT_PATH);
+        var defaultFilename = string.IsNullOrWhiteSpace(bt_path) ? "bt_graph" : filename;
+        var path = EditorUtility.SaveFilePanel("Save BTGraph", bt_path, defaultFilename, "asset");
+        if (string.IsNullOrEmpty(path))
+        {
+            return;
+        }
+
+        filename = System.IO.Path.GetFileNameWithoutExtension(path);
+        path = string.Format("{0}/{1}", BT_PATH, filename);
+        BT.BTGraphSaveUtility.Save(path, this);
     }
 }

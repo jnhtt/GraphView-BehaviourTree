@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveByAI : MonoBehaviour
 {
     [SerializeField] private Environment environment;
+    [SerializeField] private string btGraphFilename;
 
     private BT.BTData data;
     private BT.BTGraph graph;
@@ -17,7 +18,7 @@ public class MoveByAI : MonoBehaviour
         data.transformList = environment.pointList;
         data.self = transform;
 
-        graph = BT.BTGraphFactory.Load("test001");
+        graph = BT.BTGraphFactory.Load(string.Format("BTGraph/{0}", btGraphFilename));
 
         //
         var go = GameObject.Find("MoveByInput");
