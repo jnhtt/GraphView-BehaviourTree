@@ -10,8 +10,7 @@ public enum BTNodeType
     Wait,
     Random,
     CheckDistance,
-    Repeat,
-    DataSet,
+    DataSetString,
     Selector,
-    Sequencer,
+    Sequence,
 }

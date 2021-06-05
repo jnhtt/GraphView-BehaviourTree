@@ -7,15 +7,19 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTActionNode : BTNode
+    public class BTDataSetNode : BTNode
     {
-        public BTActionNode() : base()
+        public BTDataSetNode() : base()
         {
-            title = "Action";
+            title = "DataSet";
 
             var inputPort = Port.Create<Edge>(BTGraphEditor.Orientation, Direction.Input, Port.Capacity.Multi, typeof(float));
             inputPort.portName = "In";
             inputContainer.Add(inputPort);
+
+            var outputPort = Port.Create<Edge>(BTGraphEditor.Orientation, Direction.Output, Port.Capacity.Single, typeof(float));
+            outputPort.portName = "Out";
+            outputContainer.Add(outputPort);
         }
     }
 }

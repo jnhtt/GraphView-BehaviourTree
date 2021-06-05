@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BT
 {
-    public class BTSequencer : BTBase
+    public class BTSequence : BTBase
     {
         private int runningIndex = 0;
         public override BTStatus Exec(BTData data, bool traverseRunning)

@@ -45,11 +45,11 @@ namespace BT
                 case BTNodeType.Selector:
                     node = new BTSelector();
                     break;
-                case BTNodeType.Sequencer:
-                    node = new BTSequencer();
+                case BTNodeType.Sequence:
+                    node = new BTSequence();
                     break;
-                case BTNodeType.DataSet:
-                    node = new BTDataSet();
+                case BTNodeType.DataSetString:
+                    node = new BTDataSetString();
                     break;
             }
             return node;

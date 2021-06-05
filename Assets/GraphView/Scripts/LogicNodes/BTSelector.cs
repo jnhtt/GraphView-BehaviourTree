@@ -12,14 +12,7 @@ namespace BT
             Status = BTStatus.Failure;
             foreach (var node in ConnectionNodeList)
             {
-                if (node.Status == BTStatus.Running)
-                {
-                    Status = node.Exec(data, traverseRunning);
-                }
-                else
-                {
-                    Status = node.Exec(data, traverseRunning);
-                }
+                Status = node.Exec(data, traverseRunning);
 
                 if (Status == BTStatus.Success || Status == BTStatus.Running)
                 {

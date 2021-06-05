@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BT
 {
-    public abstract class BTCondition : BTBase
+    public abstract class BTDataSet : BTBase
     {
     }
 }

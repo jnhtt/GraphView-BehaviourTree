@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BT
 {
-    public class BTRandomNode : BTConditionNode
+    public class BTRandomNode : BTDecoratorNode
     {
         public BTRandom data;
 

@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace BT
 {
-    public class BTRandom : BTCondition
+    public class BTDataSetString : BTDataSet
     {
+        public string key = "";
+        public string value = "";
+
         public override BTStatus Exec(BTData data, bool traverseRunning)
         {
             Status = BTStatus.Failure;
@@ -13,28 +16,17 @@ namespace BT
             {
                 return Status;
             }
-            if (traverseRunning)
-            {
-                foreach (var node in ConnectionNodeList)
-                {
-                    if (node.Status == BTStatus.Running)
-                    {
-                        Status = node.Exec(data, traverseRunning);
-                    }
-                }
-                return Status;
-            }
 
-            int outputCount = ConnectionNodeList.Count;
-            int decide = UnityEngine.Random.Range(0, outputCount);
-            Debug.Log("Random : " + decide);
-            Status = ConnectionNodeList[decide].Exec(data, traverseRunning);
+            data.SetValue(key, value);
+            Status = ConnectionNodeList[0].Exec(data, traverseRunning);
             return Status;
         }
 
         public override string ToJson()
         {
             var list = new BTParameterList();
+            list.ParameterList.Add(new BTParamter() { Name = "Key", Value = key });
+            list.ParameterList.Add(new BTParamter() { Name = "Value", Value = value });
             return JsonUtility.ToJson(list);
         }
 
@@ -43,6 +35,8 @@ namespace BT
             var list = JsonUtility.FromJson<BTParameterList>(json);
             if (list != null)
             {
+                key = list.GetValue<string>("Key");
+                value = list.GetValue<string>("Value");
             }
         }
     }

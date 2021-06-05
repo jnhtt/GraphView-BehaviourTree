@@ -14,7 +14,7 @@ namespace BT
             NodeType = BTNodeType.Start;
             title = "Start";
 
-            var ouputPort = Port.Create<Edge>(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(float));
+            var ouputPort = Port.Create<Edge>(BTGraphEditor.Orientation, Direction.Output, Port.Capacity.Single, typeof(float));
             ouputPort.portName = "Out";
             outputContainer.Add(ouputPort);
         }

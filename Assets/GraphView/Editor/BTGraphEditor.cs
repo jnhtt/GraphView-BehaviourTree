@@ -8,6 +8,7 @@ using UnityEditor.Experimental.GraphView;
 
 public class BTGraphEditor : GraphView
 {
+    public static readonly Orientation Orientation = Orientation.Horizontal;
     private string filename = "";
     private const string BT_PATH = "BTGraph";
 

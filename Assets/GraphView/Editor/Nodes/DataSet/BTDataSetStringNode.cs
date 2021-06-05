@@ -7,18 +7,18 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTDataSetNode : BTDecoratorNode
+    public class BTDataSetStringNode : BTDataSetNode
     {
         private TextField keyField;
         private TextField valueField;
 
-        public BTDataSet data;
+        public BTDataSetString data;
 
-        public BTDataSetNode() : base()
+        public BTDataSetStringNode() : base()
         {
-            data = new BTDataSet();
+            data = new BTDataSetString();
 
-            NodeType = BTNodeType.DataSet;
+            NodeType = BTNodeType.DataSetString;
             title = "BTDataSet";
 
             keyField = new TextField();

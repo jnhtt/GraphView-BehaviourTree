@@ -26,19 +26,18 @@ public class SearchMenuWindowProvider : ScriptableObject, ISearchWindowProvider
 
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTStartNode))) { level = 2, userData = typeof(BTStartNode) });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTSelectorNode))) { level = 2, userData = typeof(BTSelectorNode) });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTSequencerNode))) { level = 2, userData = typeof(BTSequencerNode) });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTSequenceNode))) { level = 2, userData = typeof(BTSequenceNode) });
 
         entries.Add(new SearchTreeGroupEntry(new GUIContent("Action")) { level = 2 });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTMoveNode))) { level = 3, userData = typeof(BTMoveNode) });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTWaitNode))) { level = 3, userData = typeof(BTWaitNode) });
 
-        entries.Add(new SearchTreeGroupEntry(new GUIContent("Condition")) { level = 2 });
+        entries.Add(new SearchTreeGroupEntry(new GUIContent("Decorator")) { level = 2 });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRandomNode))) { level = 3, userData = typeof(BTRandomNode) });
         entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTCheckDistanceNode))) { level = 3, userData = typeof(BTCheckDistanceNode) });
 
-        entries.Add(new SearchTreeGroupEntry(new GUIContent("Decorator")) { level = 2 });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTRandomNode))) { level = 3, userData = typeof(BTRepeatNode) });
-        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTDataSetNode))) { level = 3, userData = typeof(BTDataSetNode) });
+        entries.Add(new SearchTreeGroupEntry(new GUIContent("DataSet")) { level = 2 });
+        entries.Add(new SearchTreeEntry(new GUIContent(nameof(BTDataSetStringNode))) { level = 3, userData = typeof(BTDataSetStringNode) });
         return entries;
     }
 

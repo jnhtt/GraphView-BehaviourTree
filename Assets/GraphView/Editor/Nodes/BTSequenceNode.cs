@@ -7,15 +7,20 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTActionNode : BTNode
+    public class BTSequenceNode : BTNode
     {
-        public BTActionNode() : base()
+        public BTSequenceNode() : base()
         {
-            title = "Action";
+            NodeType = BTNodeType.Sequence;
+            title = "Sequence";
 
             var inputPort = Port.Create<Edge>(BTGraphEditor.Orientation, Direction.Input, Port.Capacity.Multi, typeof(float));
             inputPort.portName = "In";
             inputContainer.Add(inputPort);
+
+            var ouputPort = Port.Create<Edge>(BTGraphEditor.Orientation, Direction.Output, Port.Capacity.Multi, typeof(float));
+            ouputPort.portName = "Out";
+            outputContainer.Add(ouputPort);
         }
     }
 }

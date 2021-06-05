@@ -94,12 +94,15 @@ namespace BT
         private static BTNode CreateBTNode(BTNodeData data)
         {
             var n = BTNodeEditorFactory.CreateNode(data.Guid, data.NodeType);
-            n.Guid = data.Guid;
-            n.Priority = data.Priority;
-            var rect = n.GetPosition();
-            rect.position = data.Position;
-            n.SetPosition(rect);
-            n.FromJson(data.parameterJson);
+            if (n != null)
+            {
+                n.Guid = data.Guid;
+                n.Priority = data.Priority;
+                var rect = n.GetPosition();
+                rect.position = data.Position;
+                n.SetPosition(rect);
+                n.FromJson(data.parameterJson);
+            }
             return n;
         }
 
@@ -107,7 +110,11 @@ namespace BT
         {
             foreach (var nodeData in graphData.Nodes)
             {
-                graphView.AddElement(CreateBTNode(nodeData));
+                var n = CreateBTNode(nodeData);
+                if (n != null)
+                {
+                    graphView.AddElement(n);
+                }
             }
         }
 
@@ -181,11 +188,11 @@ namespace BT
                 case BTNodeType.Selector:
                     node = new BTSelectorNode() { Guid = guid, NodeType = nodeType };
                     break;
-                case BTNodeType.Sequencer:
-                    node = new BTSequencerNode() { Guid = guid, NodeType = nodeType };
+                case BTNodeType.Sequence:
+                    node = new BTSequenceNode() { Guid = guid, NodeType = nodeType };
                     break;
-                case BTNodeType.DataSet:
-                    node = new BTDataSetNode() { Guid = guid, NodeType = nodeType };
+                case BTNodeType.DataSetString:
+                    node = new BTDataSetStringNode() { Guid = guid, NodeType = nodeType };
                     break;
             }
             return node;

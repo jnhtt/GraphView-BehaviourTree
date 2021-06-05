@@ -19,7 +19,7 @@ namespace BT
         NotEqual,
     }
 
-    public class BTCheckDistance : BTCondition
+    public class BTCheckDistance : BTDecorator
     {
         public CheckType checkType = CheckType.Less;
         public string targetName;

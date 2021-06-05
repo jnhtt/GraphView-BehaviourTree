@@ -7,7 +7,7 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTCheckDistanceNode : BTConditionNode
+    public class BTCheckDistanceNode : BTDecoratorNode
     {
         private EnumField checkTypeField;
         private TextField targetNameField;
