@@ -7,7 +7,7 @@ using UnityEditor.Experimental.GraphView;
 
 namespace BT
 {
-    public class BTActionNode : BTNode
+    public abstract class BTActionNode : BTNode
     {
         public BTActionNode() : base()
         {
