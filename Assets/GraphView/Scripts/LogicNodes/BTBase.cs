@@ -14,6 +14,7 @@ namespace BT
             ConnectionNodeList = new List<BTBase>();
         }
 
+        //public abstract BTBase Traverse(BTData data);
         public abstract BTStatus Exec(BTData data, bool traverseRunning);
         public virtual string ToJson()
         {
