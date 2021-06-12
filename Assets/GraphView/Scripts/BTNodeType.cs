@@ -13,4 +13,5 @@ public enum BTNodeType
     DataSetString,
     Selector,
     Sequence,
+    Attack,
 }

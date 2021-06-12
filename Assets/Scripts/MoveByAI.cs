@@ -9,9 +9,12 @@ public class MoveByAI : MonoBehaviour
     private BT.BTGraph graph;
 
     private int frame;
+    private GameObject prefab;
 
     private void Start()
     {
+        prefab = Resources.Load("Bullet") as GameObject;
+
         data = new BT.BTData();
         data.transformList = environment.pointList;
         data.self = transform;
@@ -25,6 +28,20 @@ public class MoveByAI : MonoBehaviour
             data.paramDict.Add("PlayerPos", "MoveByInput");
             data.transformList.Add(go.transform);
         }
+    }
+
+    public void Attack(Vector3 targetPos)
+    {
+        var c = GameObject.Instantiate(prefab);
+        c.GetComponent<Bullet>().launcherLayer = c.layer;
+        c.transform.localScale = 0.1f * Vector3.one;
+        c.transform.position = transform.position + 0.3f * (Vector3.up + transform.forward);
+        var r = c.GetComponent<Rigidbody>();
+        r.isKinematic = false;
+        r.useGravity = false;
+        var dir = targetPos - transform.position;
+        dir.y = 0f;
+        r.AddForce(500f * dir.normalized);
     }
 
 
