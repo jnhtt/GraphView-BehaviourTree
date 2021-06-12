@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 68099944}
   - component: {fileID: 68099943}
   - component: {fileID: 68099942}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environment: {fileID: 1935108564}
-  btGraphFilename: test001
+  btGraphFilename: test002
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 1151679118}
   - component: {fileID: 1151679117}
   - component: {fileID: 1151679116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

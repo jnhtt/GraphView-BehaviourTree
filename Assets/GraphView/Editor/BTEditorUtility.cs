@@ -179,6 +179,9 @@ namespace BT
                 case BTNodeType.Wait:
                     node = new BTWaitNode() { Guid = guid, NodeType = nodeType };
                     break;
+                case BTNodeType.Attack:
+                    node = new BTAttackNode() { Guid = guid, NodeType = nodeType };
+                    break;
                 case BTNodeType.Random:
                     node = new BTRandomNode() { Guid = guid, NodeType = nodeType };
                     break;

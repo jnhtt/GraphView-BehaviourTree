@@ -18,16 +18,6 @@ MonoBehaviour:
     Priority: 0
     Position: {x: -252, y: 312}
     parameterJson: 
-  - Guid: be76bf5090604c4f84b54d31bb5c1001
-    NodeType: 5
-    Priority: 100
-    Position: {x: -14, y: 173.5}
-    parameterJson: '{"ParameterList":[{"Name":"CheckType","Typename":"","Value":"1"},{"Name":"TargetName","Typename":"","Value":"PlayerPos"},{"Name":"Distance","Typename":"","Value":"2"}]}'
-  - Guid: 95f6a92f18ce496f9ff6e95cb7a7fd1c
-    NodeType: 2
-    Priority: 0
-    Position: {x: 183.5, y: 173.5}
-    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":"PlayerPos"}]}'
   - Guid: cc6db23176d04a49ac27171713eebd22
     NodeType: 4
     Priority: 0
@@ -73,6 +63,31 @@ MonoBehaviour:
     Priority: 100
     Position: {x: 460.5, y: 552}
     parameterJson: '{"ParameterList":[{"Name":"Wait","Typename":"","Value":"3"}]}'
+  - Guid: c7c2f0bc010f4b99aa04d34bc2a2e961
+    NodeType: 7
+    Priority: 100
+    Position: {x: -14, y: 201}
+    parameterJson: 
+  - Guid: e9836f0c85434d0d833f22a8d6fa535a
+    NodeType: 9
+    Priority: 0
+    Position: {x: 347.5, y: 44}
+    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":"PlayerPos"},{"Name":"CoolTime","Typename":"","Value":"2"}]}'
+  - Guid: be76bf5090604c4f84b54d31bb5c1001
+    NodeType: 5
+    Priority: 100
+    Position: {x: 119.5, y: 201}
+    parameterJson: '{"ParameterList":[{"Name":"CheckType","Typename":"","Value":"1"},{"Name":"TargetName","Typename":"","Value":"PlayerPos"},{"Name":"Distance","Typename":"","Value":"4"}]}'
+  - Guid: 95f6a92f18ce496f9ff6e95cb7a7fd1c
+    NodeType: 2
+    Priority: 0
+    Position: {x: 347.5, y: 230.5}
+    parameterJson: '{"ParameterList":[{"Name":"Target","Typename":"","Value":"PlayerPos"}]}'
+  - Guid: f7a5ded9db6c4f08be1e4fe31c058ed9
+    NodeType: 5
+    Priority: 200
+    Position: {x: 119.5, y: -34}
+    parameterJson: '{"ParameterList":[{"Name":"CheckType","Typename":"","Value":"1"},{"Name":"TargetName","Typename":"","Value":"PlayerPos"},{"Name":"Distance","Typename":"","Value":"3.8"}]}'
   Edges:
   - fromNodeGuid: be76bf5090604c4f84b54d31bb5c1001
     toNodeGuid: 95f6a92f18ce496f9ff6e95cb7a7fd1c
@@ -84,8 +99,6 @@ MonoBehaviour:
     toNodeGuid: bde648a54b584932b0944fa8c79b7753
   - fromNodeGuid: 31c536163d6e41fea69b595632d3f7af
     toNodeGuid: f4cc292e248347c9bd42959929169db4
-  - fromNodeGuid: f4cc292e248347c9bd42959929169db4
-    toNodeGuid: be76bf5090604c4f84b54d31bb5c1001
   - fromNodeGuid: f4cc292e248347c9bd42959929169db4
     toNodeGuid: cc6db23176d04a49ac27171713eebd22
   - fromNodeGuid: 412450511dc641618405a9aac42cd2fc
@@ -100,3 +113,11 @@ MonoBehaviour:
     toNodeGuid: 374f00371e894187a67ea8554d423729
   - fromNodeGuid: b2867a62dba84f5e8f6c676729c7bcae
     toNodeGuid: 82f9e55cbbf14976a906aaa128e6ddff
+  - fromNodeGuid: f4cc292e248347c9bd42959929169db4
+    toNodeGuid: c7c2f0bc010f4b99aa04d34bc2a2e961
+  - fromNodeGuid: c7c2f0bc010f4b99aa04d34bc2a2e961
+    toNodeGuid: be76bf5090604c4f84b54d31bb5c1001
+  - fromNodeGuid: c7c2f0bc010f4b99aa04d34bc2a2e961
+    toNodeGuid: f7a5ded9db6c4f08be1e4fe31c058ed9
+  - fromNodeGuid: f7a5ded9db6c4f08be1e4fe31c058ed9
+    toNodeGuid: e9836f0c85434d0d833f22a8d6fa535a

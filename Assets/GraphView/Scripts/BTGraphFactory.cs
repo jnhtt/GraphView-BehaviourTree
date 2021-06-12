@@ -36,6 +36,9 @@ namespace BT
                 case BTNodeType.Wait:
                     node = new BTWait();
                     break;
+                case BTNodeType.Attack:
+                    node = new BTAttack();
+                    break;
                 case BTNodeType.Random:
                     node = new BTRandom();
                     break;
